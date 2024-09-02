@@ -6,7 +6,7 @@
 #include "Variables.h"
 using namespace std;
 
-int score = 0, highScore = 0, level = 1, highLevel = 1;
+int score = 0, highScore = 0, level = 2, highLevel = 2;
 
 void game();
 
@@ -35,7 +35,7 @@ start:
 	cout << "===============================================" << endl;
 	cout << "Player Name: " << id << endl;
 	cout << "Score: " << score << endl;
-	cout << "Level: " << level << endl;
+	cout << "Level: " << level-1 << endl;
 	cout << "Highest Score: "<< highScore << endl;
 	cout << "Highest Level: " << highLevel << endl;
 	cout << "===============================================" << endl;
@@ -51,7 +51,7 @@ start:
 		game();
 		goto start;
 	case 2:
-		score = 0, level = 1;
+		score = 0, level = 2;
 		goto start;
 	case 3:
 	{

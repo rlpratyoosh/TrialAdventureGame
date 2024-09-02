@@ -78,7 +78,6 @@ start:
 
     default:
         cout << "Invalid option" << endl;
-        break;
     }
 end:
     if (login_check) {
