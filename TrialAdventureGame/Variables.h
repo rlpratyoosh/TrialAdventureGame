@@ -4,6 +4,6 @@
 using namespace std;
 
 extern string id;
-extern int score, highScore, level, highLevel;
+extern int score, highScore, level, highLevel, maxLevel;
 
 #endif // !VARIABLES_H

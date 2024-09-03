@@ -6,7 +6,7 @@
 #include "Variables.h"
 using namespace std;
 
-int score = 0, highScore = 0, level = 2, highLevel = 2;
+int score = 0, highScore = 0, level = 1, highLevel = 2, maxLevel = 0;
 
 void game();
 
@@ -22,12 +22,15 @@ void loadData(string filename) {
 	ss >> highScore;
 	ss.ignore();
 	ss >> highLevel;
+	ss.ignore();
+	ss >> maxLevel;
 	cout << "Data Loaded Successfully" << endl;
 }
 
 void showMenu() {
 	string filename = id + ".csv";
 	loadData(filename);
+	pause(2);
 start:
 	system("cls");
 	cout << "===============================================" << endl;
@@ -35,9 +38,8 @@ start:
 	cout << "===============================================" << endl;
 	cout << "Player Name: " << id << endl;
 	cout << "Score: " << score << endl;
-	cout << "Level: " << level-1 << endl;
+	cout << "Level: " << level << endl;
 	cout << "Highest Score: "<< highScore << endl;
-	cout << "Highest Level: " << highLevel << endl;
 	cout << "===============================================" << endl;
 	cout << "1. Start Game" << endl;
 	cout << "2. Reset Game" << endl;
@@ -51,12 +53,12 @@ start:
 		game();
 		goto start;
 	case 2:
-		score = 0, level = 2;
+		score = 0, level = 1, maxLevel = 0;
 		goto start;
 	case 3:
 	{
 		ofstream out(filename);
-		out << score << "," << level << "," << highScore << "," << highLevel << endl;
+		out << score << "," << level << "," << highScore << "," << highLevel << "," << maxLevel << endl;
 		cout << "File Saved Successfully.." << endl;
 		out.close();
 		goto start;
